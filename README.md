@@ -30,6 +30,8 @@ CachedNetworkImageBuilder(
     placeHolder: LinearProgressIndicator(),
     // Optional error widget
     errorWidget: Image.asset('assets/images/error_image.png'),
+    // Optional describe your image extensions default values are; jpg, jpeg, gif and png
+    imageExtensions: ['jpg', 'png'],
 ),
  ```
 
