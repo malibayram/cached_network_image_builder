@@ -1,19 +1,35 @@
 # cached_network_image_builder
 
-A tiny widget to cache your network image with downloading it via using basic http request and check it if it has already stored, so doesn't need to download it again.
+A widget to cache your network image with downloading it via using basic http request and check it if it has already stored, so doesn't need to download it again.
+
+Thanks to [pixabay](https://pixabay.com/) for free images.
+
+### Important note:
+- The packages will download image one time that means it doesn't listen if image changed on server after download it.
 
 ## How to use
+* Basic usage:
 
 ```dart
-HiveListener(
-  box: Hive.box('settings'),
-  keys: ['dark_theme'], // keys is optional to specify listening value changes
-  builder: (box) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: box.get('dark_theme', defaultValue: false) ? ThemeData.dark() : ThemeData.light(),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  },
-)
- ```# cached_network_image_builder
+CachedNetworkImageBuilder(
+    url: "https://cdn.pixabay.com/photo/2020/05/17/20/21/cat-5183427_1280.jpg",
+    builder: (image) {
+    return Center(child: Image.file(image));
+    },
+),
+ ```
+* More customized usage:
+
+```dart
+CachedNetworkImageBuilder(
+    url: "misformatted_url_or_url_that_doesn't_contain_image",
+    builder: (image) {
+    return Center(child: Image.file(image));
+    },
+    // Optional Placeholder widget until image loaded from url
+    placeHolder: LinearProgressIndicator(),
+    // Optional error widget
+    errorWidget: Image.asset('assets/images/error_image.png'),
+),
+ ```
+

@@ -1,0 +1,14 @@
+name: cached_network_image_builder
+description: A widget to cache your network image check it if it has already stored with downloading it through basic http request, so doesn't need to download it again.
+version: 0.1.0
+repository: https://github.com/malibayram91/cached_network_image_builder
+homepage: https://github.com/malibayram91/cached_network_image_builder
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.12.1
+  path_provider: ^1.6.10

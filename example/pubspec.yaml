@@ -1,0 +1,19 @@
+name: example
+description: A new Flutter project.
+
+publish_to: 'pub.dev'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cached_network_image_builder:
+    path: ../
+
+flutter:
+  assets:
+    - assets/images/error_image.png
