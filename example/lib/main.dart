@@ -14,53 +14,31 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
+class MyHomePage extends StatelessWidget {
   final String title;
 
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
+      appBar: AppBar(title: Text(title)),
       body: Padding(
         padding: EdgeInsets.all(8.0),
         child: ListView(
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
             CachedNetworkImageBuilder(
               url: "misformatted_url_or_url_that_doesn't_contain_image",
               builder: (image) {
                 return Center(child: Image.file(image));
               },
               // Optional Placeholder widget until image loaded from url
-              placeHolder: LinearProgressIndicator(),
+              placeHolder: const LinearProgressIndicator(),
               // Optional error widget
               errorWidget: Image.asset('assets/images/error_image.png'),
               // Optional describe your image extensions default values are; jpg, jpeg, gif and png
@@ -68,25 +46,22 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             SizedBox(height: 40),
             CachedNetworkImageBuilder(
-              url: "https://cdn.pixabay.com/photo/2020/05/17/20/21/cat-5183427_1280.jpg",
+              url:
+                  "https://cdn.pixabay.com/photo/2020/05/17/20/21/cat-5183427_1280.jpg",
               builder: (image) {
                 return Center(child: Image.file(image));
               },
             ),
             SizedBox(height: 40),
             CachedNetworkImageBuilder(
-              url: "https://cdn.pixabay.com/photo/2020/05/30/17/18/wind-power-plant-5239642_1280.jpg",
+              url:
+                  "https://cdn.pixabay.com/photo/2020/05/30/17/18/wind-power-plant-5239642_1280.jpg",
               builder: (image) {
                 return Center(child: Image.file(image));
               },
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
       ),
     );
   }
