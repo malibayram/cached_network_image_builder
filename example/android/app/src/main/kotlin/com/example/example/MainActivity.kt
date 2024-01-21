@@ -1,4 +1,4 @@
-package com.cached_network_image_builder.example
+package com.example.example
 
 import io.flutter.embedding.android.FlutterActivity
 
